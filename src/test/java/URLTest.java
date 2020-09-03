@@ -6,4 +6,8 @@ public class URLTest {
     public void test(){
 
     }
+    @Test
+    public void test1(){
+
+    }
 }
