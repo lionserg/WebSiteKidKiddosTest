@@ -5,8 +5,6 @@ public class LoginPage extends BasePage {
     private static final String EMAIL_FIELD = "//input[@id='CustomerEmail']";
     private static final String PASSWORD_FIELD = "//input[@id='CustomerPassword']";
     private static final String SIGN_IN_BUTTON = "//input[@value='Sign In']";
-//    private static final String EMAIL_FIELD_ERROR = ;
-//    private static final String _FIELD_ERROR = "//input[@value='Sign In']";
 
     public boolean isPageTitleVisible() {
         return elementExists(LOGIN_HEADER);
@@ -23,11 +21,5 @@ public class LoginPage extends BasePage {
     public void clickButton() {
         clickElementBypath(SIGN_IN_BUTTON);
     }
-//    public CartPage openCartTab() {
-//        clickElementBypath(SIGN_IN_BUTTON);
-//        return new CartPage();
 
-//    public boolean existsErrorUsername() {
-//        return elementExists(USERNAME_ERROR);
-//    }
 }
