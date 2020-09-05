@@ -1,6 +1,7 @@
 package Pages;
 
 import Constants.Constants;
+import org.openqa.selenium.WebElement;
 
 public class MainPage extends BasePage {
 
@@ -16,12 +17,10 @@ public class MainPage extends BasePage {
     private static final String RESOURCES_OPTION = "//a[@aria-controls='SiteNavLabel-resources']";
     private static final String SPANISH_OPTION = "//a[text()='Español']";
     private static final String FAQS_OPTION = "//a[text()='FAQs']";
-
-
-    //RESOURCES DROP LIST XPATH
-    private static final String VIDEOS_PAGE_RESOURCES_DROP_LIST = "//div[@id='SiteNavLabel-resources']//descendant::ul//li[1]";
-    private static final String BLOG_PAGE_RESOURCES_DROP_LIST = "//div[@id='SiteNavLabel-resources']//descendant::ul//li[2]";
-    ;
+    private static final String LOGIN_OPTION = "//a[@class='site-header__account']";
+    private static final String CART_OPTION = "//a[@class='site-header__cart']";
+    private static final String CURRENCY_OPTION = "//span[@class='currency-converter-currency-button skiptranslate notranslate']";
+    private static final String CHOOSE_CURRENCY = "//ul[@style='list-style-type: none; text-align: left; border: 1px solid rgb(216, 216, 216); background-color: rgb(255, 255, 255); border-radius: 2px; position: absolute; z-index: 100000000; margin: 0px; padding: 2px; max-height: 400px; min-width: 80px; min-height: 50px; top: 130.469px; left: 629.938px; display: block; overflow-y: auto;']/li[@class='currency-converter-chooser-item cbb-currency-code-AUD']";
 
 
     private static final String MAIN_PAGE_LOGO_IMG = "//img[@itemprop='logo']";
@@ -47,7 +46,6 @@ public class MainPage extends BasePage {
     }
 
 
-
     public BooksByLanguagePage openBooksByLanguageTab(String Xpath) {
 
         clickElementBypath(BOOKS_BY_LANGUAGE_OPTION);
@@ -55,7 +53,6 @@ public class MainPage extends BasePage {
         return new BooksByLanguagePage();
 
     }
-
 
 
     public EBooksByLanguagePage openEBooksByLanguageTab(String Xpath) {
@@ -68,14 +65,14 @@ public class MainPage extends BasePage {
 
     public ResourceBlogPage openResourcesBlogTab() {
         clickElementBypath(RESOURCES_OPTION);
-        clickElementBypath(BLOG_PAGE_RESOURCES_DROP_LIST);
+        clickElementBypath(ResourceBlogPage.BLOG_PAGE_RESOURCES_DROP_LIST);
         return new ResourceBlogPage();
     }
 
 
     public ResourceVideosPage openResourcesVideosTab() {
         clickElementBypath(RESOURCES_OPTION);
-        clickElementBypath(VIDEOS_PAGE_RESOURCES_DROP_LIST);
+        clickElementBypath(ResourceVideosPage.VIDEOS_PAGE_RESOURCES_DROP_LIST);
         return new ResourceVideosPage();
     }
 
@@ -113,5 +110,21 @@ public class MainPage extends BasePage {
     public BlogPage openBlogTab() {
         clickElementBypath(BLOG_OPTION);
         return new BlogPage();
+    }
+
+    public LoginPage openLoginTab() {
+        clickElementBypath(LOGIN_OPTION);
+        return new LoginPage();
+    }
+
+    public CartPage openCartTab() {
+        clickElementBypath(CART_OPTION);
+        return new CartPage();
+    }
+
+    public CurrencyPage openCurrencyTab(String xpath) {
+        clickElementBypath(CURRENCY_OPTION);
+        clickElementBypath(xpath);
+        return new CurrencyPage();
     }
 }

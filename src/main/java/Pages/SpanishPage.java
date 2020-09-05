@@ -1,9 +1,10 @@
 package Pages;
 
+import Constants.Constants;
+
 public class SpanishPage extends BasePage{
-    private static final String CONTACT_US_HEADER= "//div[@class='section-header text-center']/h1";
 
     public boolean isPageTitleVisible() {
-        return elementExists(CONTACT_US_HEADER);
+        return elementExists(Constants.HEADER);
     }
 }

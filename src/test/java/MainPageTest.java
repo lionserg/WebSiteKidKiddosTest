@@ -121,6 +121,40 @@ public class MainPageTest extends UseCaseBase {
         assertTrue(success);
     }
 
+    @Test
+    public void openCartPage() {
+        CartPage cartPage = mainPage.openCartTab();
+        boolean success = cartPage.isPageTitleVisible();
+        logger.info("SpanishPage load test");
+        cartPage.takeScreenshot("BlogPageTest");
+        assertTrue(success);
+    }
+
+
+    static Stream<Arguments> CurrencyDropList() {
+
+        return Stream.of(
+                Arguments.of(CurrencyPage.CURRENCY_DROP_LIST_AUD),
+                Arguments.of(CurrencyPage.CURRENCY_DROP_LIST_BRL),
+                Arguments.of(CurrencyPage.CURRENCY_DROP_LIST_CAD)
+
+        );
+
+    }
+
+    @ParameterizedTest
+    @MethodSource("CurrencyDropList")
+    public void openCurrencyPage(String Xpath) {
+
+        CurrencyPage currencyPage = mainPage.openCurrencyTab(Xpath);
+        boolean success = currencyPage.isPageTitleVisible();
+        logger.info("Currency Pageload test");
+        currencyPage.takeScreenshot("CurrencyPageTest");
+        assertTrue(success);
+    }
+
+
+
     static Stream<Arguments> AllLanguages() {
 
         return Stream.of(

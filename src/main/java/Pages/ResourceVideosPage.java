@@ -1,10 +1,14 @@
 package Pages;
 
+import Constants.Constants;
+
 public class
 ResourceVideosPage extends BasePage{
-    private static final String CONTACT_US_HEADER= "//div[@class='section-header text-center']/h1";
+
+    public static final String VIDEOS_PAGE_RESOURCES_DROP_LIST = "//div[@id='SiteNavLabel-resources']//descendant::ul//li[1]";
+
 
     public boolean isPageTitleVisible() {
-        return elementExists(CONTACT_US_HEADER);
+        return elementExists(Constants.HEADER);
     }
 }

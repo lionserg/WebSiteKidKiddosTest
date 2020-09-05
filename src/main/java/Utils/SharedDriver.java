@@ -37,7 +37,7 @@ public class SharedDriver {
             }
 
             webdriver.manage().window().maximize();
-            webdriver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+            webdriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
             return webdriver;
 
