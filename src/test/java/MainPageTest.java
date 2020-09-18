@@ -16,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MainPageTest extends UseCaseBase {
 
+
     private static MainPage mainPage;
     private static final Logger logger= LogManager.getLogger(MainPageTest.class);
 
@@ -33,7 +34,7 @@ public class MainPageTest extends UseCaseBase {
     public void mainPageLoadTest() {
         logger.info("Main page load test");
         mainPage.takeScreenshot("MainPageTest");
-        Boolean success = mainPage.isLogovisible();
+        boolean success = mainPage.isLogovisible();
         assertTrue(success);
     }
 

@@ -18,7 +18,7 @@ import org.apache.logging.log4j.LogManager;
     public class LoginPageTest extends UseCaseBase {
 
         private static MainPage mainPage;
-        private static final Logger logger = LogManager.getLogger(MainPageTest.class);
+        private static final Logger logger = LogManager.getLogger(LoginPageTest.class);
 
         @BeforeAll
         public static void classSetUp() {
