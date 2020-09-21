@@ -1,7 +1,6 @@
 package Pages;
 
 import Constants.Constants;
-import org.openqa.selenium.WebElement;
 
 public class MainPage extends BasePage {
 
@@ -21,7 +20,7 @@ public class MainPage extends BasePage {
     private static final String CART_OPTION = "//a[@class='site-header__cart']";
     private static final String CURRENCY_OPTION = "//span[@class='currency-converter-currency-button skiptranslate notranslate']";
     private static final String CHOOSE_CURRENCY = "//ul[@style='list-style-type: none; text-align: left; border: 1px solid rgb(216, 216, 216); background-color: rgb(255, 255, 255); border-radius: 2px; position: absolute; z-index: 100000000; margin: 0px; padding: 2px; max-height: 400px; min-width: 80px; min-height: 50px; top: 130.469px; left: 629.938px; display: block; overflow-y: auto;']/li[@class='currency-converter-chooser-item cbb-currency-code-AUD']";
-
+    public static final String CHOOSE_PURCHASE_BOOK = "//*[@id='Collection']/div/div[1]/div/a/img";
 
     private static final String MAIN_PAGE_LOGO_IMG = "//img[@itemprop='logo']";
 
@@ -32,8 +31,8 @@ public class MainPage extends BasePage {
 
     public boolean isLogovisible() {
 
-        boolean isvisible = elementExists(MAIN_PAGE_LOGO_IMG);
-        return isvisible;
+        boolean isVisible = elementExists(MAIN_PAGE_LOGO_IMG);
+        return isVisible;
     }
 
 
@@ -126,5 +125,11 @@ public class MainPage extends BasePage {
         clickElementBypath(CURRENCY_OPTION);
         clickElementBypath(xpath);
         return new CurrencyPage();
+    }
+    public BooksByLanguagePurchaseBookPage openBooksByLanguagePurchaseBookTab() {
+
+        clickElementBypath(CHOOSE_PURCHASE_BOOK);
+        return new BooksByLanguagePurchaseBookPage();
+
     }
 }

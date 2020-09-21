@@ -30,6 +30,9 @@ public class BasePage {
 
     }
 
+    protected void clearElementFieldByXpath(String xpath){
+        findElementByXpath(xpath).clear();
+    }
 
 
     protected boolean elementExists(String xpath) {
