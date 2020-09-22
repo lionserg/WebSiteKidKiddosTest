@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.openqa.selenium.By;
 
 import java.util.stream.Stream;
 
@@ -252,12 +253,16 @@ public class MainPageTest extends UseCaseBase {
     static Stream<Arguments> NegativeData() {
 
         return Stream.of(
-                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "long text long text long text long text long text long text long text long text"),
+
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "(519) 556-89-12"),
-                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "-256644 2646 hghjkrf 69"),
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "-256644"),
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "%^^%&^^$#%*)__+"),
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "0"),
-                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, ",.")
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "."),
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, ","),
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "+"),
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "-"),
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "eee")
 
 
         );
@@ -278,19 +283,19 @@ public class MainPageTest extends UseCaseBase {
 
     }
 
-    static Stream<Arguments> NegativeDataLongNumber() {
+    static Stream<Arguments> NegativeDataLongNumberAndBlankField() {
 
         return Stream.of(
-                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "''"),
-                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "15Jan2020"),
-                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "45668925685292005")
+
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, " "),
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "45668925685292005565232")
         );
     }
 
     @ParameterizedTest
-    @MethodSource("NegativeDataLongNumber")
+    @MethodSource("NegativeDataLongNumberAndBlankField")
 
-    public void verifyBookAdditionToCartLongNumberNegativeTest(String xpath, String testing_data) {
+    public void verifyBookAdditionToCartLongNumberAndBlankFieldNegativeTest(String xpath, String testing_data) {
         BooksByLanguagePage booksByLanguagePage = mainPage.openBooksByLanguageTab(xpath);
         BooksByLanguagePurchaseBookPage booksByLanguagePurchaseBookPage = booksByLanguagePage.openBooksByLanguagePurchaseBookTab();
         booksByLanguagePurchaseBookPage.addToCartPurchaseBooks(testing_data);
@@ -298,6 +303,7 @@ public class MainPageTest extends UseCaseBase {
         booksByLanguagePurchaseBookPage.takeScreenshot("VerifyingAdditionCartFieldNegativeTest");
         boolean result = booksByLanguagePurchaseBookPage.isPageTitleVisible();
         assertFalse(result);
+
 
     }
 
