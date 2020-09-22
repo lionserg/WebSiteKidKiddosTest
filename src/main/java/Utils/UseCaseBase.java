@@ -19,10 +19,10 @@ public class UseCaseBase {
     }
 
 
-//    @AfterAll
-//    public static void tearDownMain() {
-//        SharedDriver.closeWebdriver();
-//        webDriver = null;
-//
-//    }
+    @AfterAll
+    public static void tearDownMain() {
+        SharedDriver.closeWebdriver();
+        webDriver = null;
+
+    }
 }
