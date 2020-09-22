@@ -254,14 +254,12 @@ public class MainPageTest extends UseCaseBase {
         return Stream.of(
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "long text long text long text long text long text long text long text long text"),
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "(519) 556-89-12"),
-//
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "-256644 2646 hghjkrf 69"),
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "%^^%&^^$#%*)__+"),
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "' '"),
-//
                 Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "0"),
-                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, ",."),
-                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, "eeeeeeeeeeeeeeee")
+                Arguments.of(BooksByLanguagePage.ENGLISH_ONLY_BOOKS_BY_LANGUAGE_DROP_LIST, ",.")
+
 
         );
 
